@@ -6,6 +6,9 @@ let highScore = 0;
 const score_val = document.querySelector('.score-val');
 const high_score_val = document.querySelector('.high-score-val');
 let score = 10;
+
+const header = document.querySelector('header');
+const outer = document.querySelector('.outer');
 //console.log(score_val.textContent);
 
 document.querySelector('.check').addEventListener('click', function() {
@@ -13,6 +16,8 @@ document.querySelector('.check').addEventListener('click', function() {
    if (!guessVal){
     message.textContent = '❌ Enter a valid Number!';
    }else{
+        header.style = "background-color:rgb(34, 34, 34);";
+        outer.style = "background-color:rgb(34, 34, 34);";
         if (randomNum > guessVal ){
             message.textContent = '🔎 Guess a Higher Number';
             score--;
@@ -28,11 +33,15 @@ document.querySelector('.check').addEventListener('click', function() {
             score_val.textContent = score;
             if (score == 0){
                 message.textContent = '🔃 You Lost. Game is now Reset.';
+
                 score = 10;
                 score_val.textContent = score;
             }
         }else{
             message.textContent = '🎉YAY! YOU WON!';
+            
+            header.style = "background-color:green";
+            outer.style = "background-color:green";
             
             randomNum = Math.floor(Math.random() * (20 - 1) + 1);
             if (score > highScore){
@@ -47,6 +56,8 @@ document.querySelector('.check').addEventListener('click', function() {
 });
 
 document.querySelector('.again').addEventListener('click', function() {
+    header.style = "background-color:rgb(34, 34, 34);";
+    outer.style = "background-color:rgb(34, 34, 34);";
     score = 10;
     highScore = 0;
     document.querySelector('.guess-input').value = '';
