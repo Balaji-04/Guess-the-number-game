@@ -69,6 +69,7 @@ hr{
     top: 25%;
     left: 45%;
     bottom: 61%;
+    vertical-align: center;
 }
 .guess-input{
     display: block;
